@@ -36,7 +36,8 @@ The program codes are structured into 6 segments:
 6) Interactive codes
 
 User Guide
-The interactive segment presents the user with 6 options:
+The interactive segment presents the user with 5 options:
+
 0) Re-initialize database - for maintenance purpose by recreating SQLite database, re-inserting data into the tables and re-inserting user's portfolio of stocks from memory (cache)
 
 1) Search for a stock - for user to search for any stock listed on the Singapore Stock Exchange. For example if user would like to query for stock called "VENTURE CORPORATION LIMITED", user can search using the non-exhaustive list such as  "VE", "VENTURE", "VENTURE COR", "LIMITED" etc... as long as the words inputted are within the strings of the stock name.
