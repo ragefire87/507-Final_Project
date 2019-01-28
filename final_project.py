@@ -149,7 +149,7 @@ def stock_financials(stockcode):
 
         if l>0: #to check if there are any existing stock_financial entry for the same date and time. This section of code dictates what will be written into stock_financials table
             stocks_dict1["name"] = name.text
-            stocks_dict1["date"] = month_dict[y.split(' ')[1]]+"-"+y.split(' ')[0]+"-"+y.split(' ')[2]
+            stocks_dict1["date"] = y.split(' ')[2]+"-"+month_dict[y.split(' ')[1]]+"-"+y.split(' ')[0]
             stocks_dict1["time_recorded"] = y.split(' ')[3]
             stocks_dict1["price"] = share_price.find('strong').text
             stocks_dict1["day_highest"]= td[2].find('strong').text
@@ -172,7 +172,7 @@ def stock_financials(stockcode):
             pass
 
         date_time = dateTime.text.split(" at ")[1]
-        date = month_dict[y.split(' ')[1]]+"-"+y.split(' ')[0]+"-"+y.split(' ')[2]
+        date = y.split(' ')[2]+"-"+month_dict[y.split(' ')[1]]+"-"+y.split(' ')[0]
         stock_name = name.text
         current_shareprice = share_price.find('strong').text
         day_high = td[2].find('strong').text
@@ -232,7 +232,7 @@ def stock_financials(stockcode):
 
         if l>0: #to check if there are any existing stock_financial entry for the same date and time. This section of code dictates what will be written into stock_financials table
             stocks_dict1["name"] = name.text
-            stocks_dict1["date"] = month_dict[y.split(' ')[1]]+"-"+y.split(' ')[0]+"-"+y.split(' ')[2]
+            stocks_dict1["date"] = y.split(' ')[2]+"-"+month_dict[y.split(' ')[1]]+"-"+y.split(' ')[0]
             stocks_dict1["time_recorded"] = y.split(' ')[3]
             stocks_dict1["price"] = share_price.find('strong').text
             stocks_dict1["day_highest"]= td[2].find('strong').text
@@ -255,7 +255,7 @@ def stock_financials(stockcode):
             pass
 
         date_time = dateTime.text.split(" at ")[1]
-        date = month_dict[y.split(' ')[1]]+"-"+y.split(' ')[0]+"-"+y.split(' ')[2]
+        date = y.split(' ')[2]+"-"+month_dict[y.split(' ')[1]]+"-"+y.split(' ')[0]
         stock_name = name.text
         current_shareprice = share_price.find('strong').text
         day_high = td[2].find('strong').text
@@ -1210,6 +1210,8 @@ if __name__ == "__main__":
                             print("Dividend Yield for "+ stock_name+ " at current share price of "+ current_shareprice+ " is " + div_yield+"%")
                             print("Price per Cashflow for "+ stock_name+ " is $" + price_per_cashflow)
                             print("Market Capitalization for "+ stock_name+ " is ('000) " + market_cap +"\n")
+                            create_db()
+                            insert_stuff()
                         except:
                             print(extracted_stocknames[int(input3)-1] + " is not traded on the open market. Please try another stock. Thank you.\n")
                             continue
@@ -1708,7 +1710,7 @@ if __name__ == "__main__":
                                                     print(str(j) + " "+i + " (" + link[j-1] + ")")
                                                     j+=1
                                                 print(str(j) + " Back to previous menu")
-                                                print(str(j+1) + "Exit program")
+                                                print(str(j+1) + " Exit program")
 
                                                 input10 = input("\nInput the number associated with the latest news of " + assess_portfolio("Stocks.Name")[int(input8)-1][0] + " to view in your browser.\n")
                                                 if input10.isdigit():
